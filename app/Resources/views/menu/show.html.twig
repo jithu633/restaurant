@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Menu</h1>
+
+    <table style="width:100%">
+        <tbody style="background-color: antiquewhite;width:100%;margin-bottom: 200px;margin-left: 100px">
+            <tr>
+                <th>Id</th>
+                <td>{{ menu.id }}</td>
+            </tr>
+            <tr>
+                <th>Item</th>
+                <td>{{ menu.item }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ menu.price }}</td>
+            </tr>
+            <tr>
+                <th>Calories</th>
+                <td>{{ menu.calories }}</td>
+            </tr>
+            <tr>
+                <th>Carbs</th>
+                <td>{{ menu.carbs }}</td>
+            </tr>
+            <tr>
+                <th>Fats</th>
+                <td>{{ menu.fats }}</td>
+            </tr>
+            <tr>
+                <th>Proteins</th>
+                <td>{{ menu.proteins }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul style="width:50%">
+        <li style="border: 1px solid cornflowerblue">
+            <a href="{{ path('menu_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('menu_edit', { 'id': menu.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

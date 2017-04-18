@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ruchi Restaurant</h1>
+    <h2>Menus list</h2>
+
+    <table style="width:100%; border:1px solid red;background-color: #66dd66;text-align: center">
+        <thead style="color:red">
+            <tr>
+                <th>Id</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Calories</th>
+                <th>Carbs</th>
+                <th>Fats</th>
+                <th>Proteins</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center">
+        {% for menu in menus %}
+            <tr>
+                <td><a href="{{ path('menu_show', { 'id': menu.id }) }}">{{ menu.id }}</a></td>
+                <td>{{ menu.item }}</td>
+                <td>{{ menu.price }}</td>
+                <td>{{ menu.calories }}</td>
+                <td>{{ menu.carbs }}</td>
+                <td>{{ menu.fats }}</td>
+                <td>{{ menu.proteins }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('menu_show', { 'id': menu.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('menu_edit', { 'id': menu.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('menu_new') }}">Create a new menu</a>
+        </li>
+    </ul>
+{% endblock %}
