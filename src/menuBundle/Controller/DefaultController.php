@@ -16,8 +16,8 @@ class DefaultController extends Controller
     {
         echo "<h1>Restuarant";
         $menu = new menu();
-        $menu->setItem('dosa');
-        $menu->setPrice('dosa');
+        $menu->setItem('idli');
+        $menu->setPrice('20$');
         echo "</h1>";
         $menu->setCalories('100cal');
         $menu->setCarbs('200carbs');
